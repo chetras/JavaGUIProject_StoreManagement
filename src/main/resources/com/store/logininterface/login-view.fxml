@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.logincontroller">
+   <children>
+      <BorderPane>
+         <center>
+            <AnchorPane prefHeight="509.0" prefWidth="656.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button layoutX="212.0" layoutY="487.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="248.0" style="-fx-background-color: lightblue;" text="Register" />
+                  <Button layoutX="213.0" layoutY="419.0" mnemonicParsing="false" onAction="#handleloginbutton" prefHeight="32.0" prefWidth="248.0" style="-fx-background-color: lightgreen;" text="Login" />
+                  <Label ellipsisString="" layoutX="181.0" layoutY="250.0" prefHeight="35.0" prefWidth="358.0" text="Enter Username and Password to login :" textFill="#b70e0e">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="259.0" layoutY="200.0" prefHeight="54.0" prefWidth="160.0" text="Welcome">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="usernamefield" layoutX="212.0" layoutY="299.0" prefHeight="26.0" prefWidth="247.0" promptText="username" />
+                  <PasswordField fx:id="passwordfield" layoutX="213.0" layoutY="350.0" prefHeight="26.0" prefWidth="246.0" promptText="password" />
+                  <Label layoutX="330.0" layoutY="451.0" prefHeight="36.0" prefWidth="26.0" text="or" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
