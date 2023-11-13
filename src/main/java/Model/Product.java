@@ -9,6 +9,7 @@ public class Product {
     private int cat_id;
     private String cat_name;
     private int nr_sales;
+    private int you;
 
     public String getName() {
         return name;
