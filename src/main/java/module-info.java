@@ -3,6 +3,7 @@ module com.store.storeproject {
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
+    requires javafx.base;
 
     opens com.store.logininterface to javafx.fxml;
     exports com.store.logininterface;
