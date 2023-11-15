@@ -12,5 +12,3 @@ public class registercontroller {
         me.changeScene("login-view.fxml");
     }
 }
-
-

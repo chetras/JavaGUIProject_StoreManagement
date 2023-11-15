@@ -28,6 +28,7 @@ public class logincontroller {
         main m = new main();
         if(usernamefield.getText().toString().equals("John") && passwordfield.getText().toString().equals("123")){
             wronglogin.setText("Success");
+            m.changeScene("admin-dashboard.fxml");
         }
         else if (usernamefield.getText().isEmpty() && passwordfield.getText().isEmpty()){
             wronglogin.setText("Please enter user data.");
