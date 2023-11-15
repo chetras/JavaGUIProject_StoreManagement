@@ -33,7 +33,7 @@
                                           <Font name="System Italic" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7">
+                                    <Button mnemonicParsing="false" onAction="#handleadminlogoutbutton" prefHeight="29.0" prefWidth="69.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7">
                                        <HBox.margin>
                                           <Insets right="10.0" />
                                        </HBox.margin>

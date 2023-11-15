@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserDashboardcontroller">
+<AnchorPane prefHeight="600.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserDashboardcontroller">
    <children>
       <BorderPane layoutX="2.0" prefHeight="600.0" prefWidth="654.0">
          <top>
@@ -42,7 +41,7 @@
                                  <font>
                                     <Font name="Times New Roman Italic" size="18.0" />
                                  </font></Label>
-                              <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7">
+                              <Button mnemonicParsing="false" onAction="#handleuserlogoutbutton" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>

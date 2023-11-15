@@ -19,21 +19,23 @@ public class logincontroller {
     @FXML
     public PasswordField passwordfield;
 
-
     public void handleloginbutton (Event e) throws IOException {
         checkLogin();
     }
 
     public void checkLogin() throws IOException{
         main m = new main();
-        if(usernamefield.getText().toString().equals("John") && passwordfield.getText().toString().equals("123")){
-            wronglogin.setText("Success");
+        String username = usernamefield.getText();
+        String password = passwordfield.getText();
+        if ("John".equals(username) && "123".equals(password)) {
+            wronglogin.setText("Success - Admin Dashboard");
             m.changeScene("admin-dashboard.fxml");
-        }
-        else if (usernamefield.getText().isEmpty() && passwordfield.getText().isEmpty()){
-            wronglogin.setText("Please enter user data.");
-        }
-        else {
+        } else if ("Alice".equals(username) && "456".equals(password)) {
+            wronglogin.setText("Success - User Dashboard");
+            m.changeScene("user-dashboard.fxml");
+        } else if (username.isEmpty() || password.isEmpty()) {
+            wronglogin.setText("Please enter both username and password.");
+        } else {
             wronglogin.setText("Wrong username or password");
         }
     }
