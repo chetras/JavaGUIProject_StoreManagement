@@ -9,7 +9,7 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="root">
          <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="root" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="684.0" prefWidth="791.0" styleClass="root" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="260.0" layoutY="183.0" prefHeight="53.0" prefWidth="160.0" text="Welcome">
                      <font>

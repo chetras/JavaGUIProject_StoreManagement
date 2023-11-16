@@ -1,1 +1,2 @@
 chetra,sada,123
+nak,1,1

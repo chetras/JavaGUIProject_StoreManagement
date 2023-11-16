@@ -34,18 +34,15 @@ public class logincontroller {
         if (users != null) {
             for (User user : users) {
                 if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                    if (UserDataHandler.isUserAdmin(user)) {
-                        wronglogin.setText("Success - Admin Dashboard");
-                        m.changeScene("admin-dashboard.fxml");
-                    } else {
                         wronglogin.setText("Success - User Dashboard");
                         m.changeScene("user-dashboard.fxml");
-                    }
-                    return;
+                }
+                else if(username.equals("admin") && password.equals("123")){
+                    wronglogin.setText("Success - Admin Dashboard");
+                    m.changeScene("admin-dashboard.fxml");
                 }
             }
         }
-
         if (username.isEmpty() || password.isEmpty()) {
             wronglogin.setText("Please enter both username and password.");
         } else {
