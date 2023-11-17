@@ -1,2 +1,3 @@
 chetra,sada,123
 nak,1,1
+nee,nee30@gmail.com,1234

@@ -19,8 +19,6 @@ public class main extends Application {
         primaryStage.setTitle("Store Management System");
         primaryStage.setScene(scene);
         primaryStage.show();
-        System.out.println("Working Directory: " + System.getProperty("user.dir"));
-
     }
 
     public void changeScene(String fxml) throws IOException{
