@@ -1,76 +1,57 @@
 package Model;
 
 public class Product {
-    private String name;
-    private int id; // The product ID
-    private double price;
-    private int quantity; // The item in stock
-    private String description;
-    private int cat_id;
-    private String cat_name;
-    private int nr_sales;
-
-    public String getName() {
-        return name;
+    public String getProductID() {
+        return ProductID;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductID(String productID) {
+        ProductID = productID;
     }
 
-    public int getId() {
-        return id;
+    public String getProductName() {
+        return ProductName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProductName(String productName) {
+        ProductName = productName;
     }
 
-    public double getPrice() {
-        return price;
+    public String getPrice() {
+        return Price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPrice(String price) {
+        Price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getCatagory() {
+        return Catagory;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setCatagory(String catagory) {
+        Catagory = catagory;
     }
 
-    public String getDescription() {
-        return description;
+    public String getProductStocks() {
+        return ProductStocks;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProductStocks(String productStocks) {
+        ProductStocks = productStocks;
     }
 
-    public int getCat_id() {
-        return cat_id;
-    }
+    private String ProductID;
+    private String ProductName;
+    private String Price;
+    private String Catagory;
+    private String ProductStocks;
 
-    public void setCat_id(int cat_id) {
-        this.cat_id = cat_id;
-    }
-
-    public String getCat_name() {
-        return cat_name;
-    }
-
-    public void setCat_name(String cat_name) {
-        this.cat_name = cat_name;
-    }
-
-    public int getNr_sales() {
-        return nr_sales;
-    }
-
-    public void setNr_sales(int nr_sales) {
-        this.nr_sales = nr_sales;
+    public Product(String productID, String productName, String price, String catagory, String productStocks) {
+        ProductID = productID;
+        ProductName = productName;
+        Price = price;
+        Catagory = catagory;
+        ProductStocks = productStocks;
     }
 }
