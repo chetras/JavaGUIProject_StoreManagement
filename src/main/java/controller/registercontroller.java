@@ -34,7 +34,6 @@ public class registercontroller {
         String confirmPassword = confirmPasswordField.getText();
 
         if (!password.equals(confirmPassword)) {
-            // Show an error message to the user
             System.out.println("Passwords do not match!");
             return;
         }
