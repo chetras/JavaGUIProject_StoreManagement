@@ -9,4 +9,6 @@ module com.store.storeproject {
     exports com.store.logininterface;
     exports controller;
     opens controller to javafx.fxml;
+    exports Model;
+    opens Model to javafx.fxml;
 }

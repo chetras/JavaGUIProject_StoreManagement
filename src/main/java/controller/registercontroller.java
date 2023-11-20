@@ -43,6 +43,10 @@ public class registercontroller {
         newUser.setUsername(usernameField.getText());
         newUser.setEmail(emailField.getText());
         newUser.setPassword(password);
+        usernameField.setText("");
+        emailField.setText("");
+        passwordField.setText("");
+        confirmPasswordField.setText("");
 
         UserDataHandler.saveUser(newUser);
     }

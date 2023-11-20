@@ -1,0 +1,5 @@
+001,Coke,12,Drink,100
+Cake,sa,sda,dsa,dsa
+Cas,dsad,sd,sada,sada
+coke,dsad,sdsa,dsad,sadsa
+heng,dsa,sad,dsa,dsa

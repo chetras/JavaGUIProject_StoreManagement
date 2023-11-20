@@ -36,10 +36,12 @@ public class logincontroller {
                 if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                         wronglogin.setText("Success - User Dashboard");
                         m.changeScene("user-dashboard.fxml");
+                        return;
                 }
                 else if(username.equals("admin") && password.equals("123")){
                     wronglogin.setText("Success - Admin Dashboard");
                     m.changeScene("admin-dashboard.fxml");
+                    return;
                 }
             }
         }
