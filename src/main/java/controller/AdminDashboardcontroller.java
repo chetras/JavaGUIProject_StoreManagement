@@ -107,7 +107,7 @@ public class AdminDashboardcontroller implements Initializable {
         FileWriter writer = new FileWriter(FILE_PATH);
 
         for(Product product : products){
-            writer.write(product.getProductID() + "," + product.getProductName() + "," + product.getPrice() + "," + product.getCatagory() + "," + product.getProductStocks());
+            writer.write(product.getProductID() + "," + product.getProductName() + "," + product.getPrice() + "," + product.getCatagory() + "," + product.getProductStocks()+"\n");
         }
         writer.close();
     }
@@ -141,7 +141,12 @@ public class AdminDashboardcontroller implements Initializable {
         Scanner input = new Scanner(new File(FILE_PATH));
         while (input.hasNextLine()){
             String[] str = input.nextLine().split(",");
-            list.add(new Product(str[0],str[1],str[2],str[3],str[4]));
+            if (str.length == 5) {
+                list.add(new Product(str[0], str[1], str[2], str[3], str[4]));
+            } else {
+                // Handle the case where the array doesn't have enough elements
+                System.err.println("Invalid data format: " );
+            }
         }
         productData.setItems(list);
         input.close();
