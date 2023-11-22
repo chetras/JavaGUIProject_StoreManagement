@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardcontroller">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserDashboardcontroller">
    <children>
       <Label layoutX="446.0" layoutY="8.0" prefHeight="35.0" prefWidth="286.0" text="Store Management System" textFill="#222121">
          <font>
@@ -42,7 +43,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="39.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleadminlogoutbutton" prefHeight="47.0" prefWidth="80.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7" />
+                        <Button layoutX="39.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleuserlogoutbutton" prefHeight="47.0" prefWidth="80.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7" />
                      </children>
                   </AnchorPane>
                </children>
@@ -62,12 +63,12 @@
          </columns>
       </TableView>
       <TextField fx:id="txtProdId" layoutX="220.0" layoutY="503.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductID" />
-      <Button fx:id="btnsearchProd" layoutX="629.0" layoutY="544.0" mnemonicParsing="false" onAction="#searchOnClick" text="Search Product" />
+      <Button layoutX="629.0" layoutY="544.0" mnemonicParsing="false" onAction="#searchOnUserClick" text="Search Product" />
       <TextField fx:id="txtProdName" layoutX="220.0" layoutY="541.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductName" />
       <TextField fx:id="txtProdPrice" layoutX="220.0" layoutY="580.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductPrice" />
       <TextField fx:id="txtProdCat" layoutX="220.0" layoutY="619.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductCatagory" />
       <TextField fx:id="txtProdStock" layoutX="220.0" layoutY="655.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductStock" />
-      <Button fx:id="btnshowProd" layoutX="556.0" layoutY="596.0" mnemonicParsing="false" onAction="#displayTable" text="Show All Product" />
+      <Button layoutX="556.0" layoutY="596.0" mnemonicParsing="false" onAction="#displayuserTable" text="Show All Product" />
       <Label fx:id="text" layoutX="511.0" layoutY="655.0" prefHeight="21.0" prefWidth="214.0" textAlignment="CENTER" />
       <Button layoutX="524.0" layoutY="544.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" text="Buy Product" />
    </children>
