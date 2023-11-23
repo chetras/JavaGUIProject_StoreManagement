@@ -18,27 +18,22 @@
                <children>
                   <AnchorPane prefHeight="700.0" prefWidth="98.0">
                      <children>
-                        <Button layoutX="21.0" layoutY="402.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Setting">
+                        <Button layoutX="21.0" layoutY="316.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Setting">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="63.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Home">
+                        <Button layoutX="21.0" layoutY="63.0" mnemonicParsing="false" onAction="#onHomebtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Home">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="149.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Order">
+                        <Button layoutX="21.0" layoutY="149.0" mnemonicParsing="false" onAction="#onOrderbtn" prefHeight="81.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Order">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="230.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Product">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="21.0" layoutY="316.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Customer">
+                        <Button layoutX="21.0" layoutY="230.0" mnemonicParsing="false" onAction="#onProductbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Product">
                            <font>
                               <Font size="14.0" />
                            </font>

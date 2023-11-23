@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -25,22 +23,22 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="63.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Home">
+                        <Button layoutX="21.0" layoutY="63.0" mnemonicParsing="false" onAction="#onHomebtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Home">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="149.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Order">
+                        <Button layoutX="21.0" layoutY="149.0" mnemonicParsing="false" onAction="#onOrderbtn" prefHeight="81.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Order">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="230.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Product">
+                        <Button layoutX="21.0" layoutY="230.0" mnemonicParsing="false" onAction="#onproductbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Product">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="316.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Customer">
+                        <Button layoutX="21.0" layoutY="316.0" mnemonicParsing="false" onAction="#onCustomerbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Customer">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -74,6 +72,6 @@
       <Button fx:id="btnaddProd" layoutX="485.0" layoutY="503.0" mnemonicParsing="false" onAction="#addOnClick" prefHeight="31.0" prefWidth="125.0" text="Add Product" />
       <Button fx:id="btnupdateProd" layoutX="485.0" layoutY="549.0" mnemonicParsing="false" onAction="#updateOnClick" text="Update Product" />
       <Button fx:id="btnshowProd" layoutX="556.0" layoutY="596.0" mnemonicParsing="false" onAction="#displayTable" text="Show All Product" />
-      <Label fx:id="text" layoutX="511.0" layoutY="655.0" prefHeight="21.0" prefWidth="214.0" textAlignment="CENTER" />
+      <Label fx:id="text" layoutX="476.0" layoutY="660.0" prefHeight="21.0" prefWidth="306.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

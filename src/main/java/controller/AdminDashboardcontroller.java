@@ -77,6 +77,26 @@ public class AdminDashboardcontroller implements Initializable {
         me.changeScene("login-view.fxml");
     }
 
+    public void onCustomerbtn(Event e) throws IOException{
+        main me = new main();
+        me.changeScene("admin-customer.fxml");
+    }
+
+    public void onOrderbtn(Event e) throws  IOException{
+        main me = new main();
+        me.changeScene("order-admin.fxml");
+    }
+
+    public void onproductbtn(Event e) throws IOException{
+        main me = new main();
+        me.changeScene("admin-dashboard.fxml");
+    }
+
+    public void onHomebtn(Event e) throws IOException{
+        main me = new main();
+        me.changeScene("user-home.fxml");
+    }
+
     private ArrayList<Product> readProduct() throws IOException {
         ArrayList<Product> products = new ArrayList<>();
         File file = new File(FILE_PATH);

@@ -58,6 +58,21 @@ public class UserDashboardcontroller {
             main me = new main();
             me.changeScene("login-view.fxml");
         }
+
+    public void onOrderbtn(Event e) throws IOException{
+        main me = new main();
+        me.changeScene("user-order.fxml");
+    }
+
+    public void onHomebtn(Event e) throws IOException{
+        main me = new main();
+        me.changeScene("user-home.fxml");
+    }
+
+    public void onProductbtn(Event e) throws IOException{
+        main me = new main();
+        me.changeScene("user-dashboard.fxml");
+    }
     @FXML
     protected void searchOnUserClick() throws IOException{
         searchProduct(txtProdId.getText(),txtProdName.getText(),txtProdPrice.getText(),txtProdCat.getText(),txtProdStock.getText());

@@ -33,11 +33,6 @@
                     <top>
                         <AnchorPane prefHeight="66.0" prefWidth="894.0" BorderPane.alignment="CENTER">
                             <children>
-                        <Button layoutX="21.0" layoutY="12.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="116.0" style="-fx-background-color: Blue;" text="Back" textFill="#f8f1f1">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Button>
                                 <Button layoutX="261.0" layoutY="59.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Search" />
                                 <Label layoutX="358.0" layoutY="5.0" text="Order History">
                                     <font>
@@ -45,7 +40,8 @@
                                     </font>
                                 </Label>
                                 <TextField layoutX="21.0" layoutY="59.0" prefHeight="31.0" prefWidth="235.0" promptText="search by name or id" />
-                        <Button layoutX="798.0" layoutY="59.0" mnemonicParsing="false" style="-fx-background-color: red;" text="Log Out" textFill="#ebdfdf" />
+                        <Button layoutX="21.0" layoutY="19.0" mnemonicParsing="false" onAction="#onlogoutbtn" style="-fx-background-color: red;" text="Log Out" textFill="#ebdfdf" />
+                        <Button layoutX="806.0" layoutY="59.0" mnemonicParsing="false" onAction="#onbackbtn" prefHeight="31.0" prefWidth="62.0" text="Back" />
                             </children>
                         </AnchorPane>
                     </top>
