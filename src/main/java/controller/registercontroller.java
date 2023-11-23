@@ -13,6 +13,9 @@ import java.io.IOException;
 
 public class registercontroller {
     @FXML
+    protected TextField fullnameField;
+
+    @FXML
     protected TextField usernameField;
 
     @FXML
@@ -39,9 +42,11 @@ public class registercontroller {
         }
 
         User newUser = new User();
+        newUser.setFullname(fullnameField.getText());  // Set the fullname property
         newUser.setUsername(usernameField.getText());
         newUser.setEmail(emailField.getText());
         newUser.setPassword(password);
+        fullnameField.setText("");
         usernameField.setText("");
         emailField.setText("");
         passwordField.setText("");

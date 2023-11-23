@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserDataHandler {
-    File f = new File("user.txt");
     private static final String FILE_PATH = "user.txt";
 
     public static void saveUser(User user) {
@@ -18,7 +17,7 @@ public class UserDataHandler {
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_PATH))) {
             for (User u : users) {
-                writer.println(u.getUsername() + "," + u.getEmail() + "," + u.getPassword());
+                writer.println(u.getFullname() + "," + u.getUsername() + "," + u.getEmail() + "," + u.getPassword());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,11 +40,12 @@ public class UserDataHandler {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split(",");
-                if (parts.length == 3) {
+                if (parts.length == 4) {
                     User user = new User();
-                    user.setUsername(parts[0]);
-                    user.setEmail(parts[1]);
-                    user.setPassword(parts[2]);
+                    user.setFullname(parts[0]);
+                    user.setUsername(parts[1]);
+                    user.setEmail(parts[2]);
+                    user.setPassword(parts[3]);
                     users.add(user);
                 }
             }

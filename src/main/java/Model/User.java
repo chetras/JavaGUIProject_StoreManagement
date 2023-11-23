@@ -3,6 +3,15 @@ package Model;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    private String fullname;
     private String role;
     private String username;
     private String email;
