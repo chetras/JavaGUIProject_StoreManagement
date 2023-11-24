@@ -79,7 +79,7 @@ public class AdminDashboardcontroller implements Initializable {
 
     public void onCustomerbtn(Event e) throws IOException{
         main me = new main();
-        me.changeScene("admin-customer.fxml");
+        me.changeScene("admincustomer.fxml");
     }
 
     public void onOrderbtn(Event e) throws  IOException{
@@ -291,4 +291,5 @@ public class AdminDashboardcontroller implements Initializable {
         productData.setItems(list);
         input.close();
     }
+
 }

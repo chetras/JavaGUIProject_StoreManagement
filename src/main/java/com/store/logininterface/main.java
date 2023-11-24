@@ -15,7 +15,7 @@ public class main extends Application {
     public void start(Stage primaryStage) throws IOException {
         stg = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 900, 700);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
         primaryStage.setTitle("Store Management System");
         primaryStage.setScene(scene);
         primaryStage.show();

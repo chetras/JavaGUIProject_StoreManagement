@@ -1,6 +1,7 @@
 package controller;
 
 import Model.Product;
+import Model.User;
 import com.store.logininterface.main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -71,7 +73,7 @@ public class UserDashboardcontroller {
 
     public void onProductbtn(Event e) throws IOException{
         main me = new main();
-        me.changeScene("user-dashboard.fxml");
+        me.changeScene("userdashboard.fxml");
     }
     @FXML
     protected void searchOnUserClick() throws IOException{

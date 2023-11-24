@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.userOrderController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.userOrderController">
     <children>
         <StackPane layoutX="6.0" prefHeight="700.0" prefWidth="894.0">
             <children>
@@ -16,7 +16,7 @@
                     <center>
                         <AnchorPane prefHeight="554.0" prefWidth="894.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView layoutX="9.0" layoutY="18.0" prefHeight="538.0" prefWidth="866.0">
+                        <TableView layoutX="9.0" layoutY="18.0" prefHeight="538.0" prefWidth="964.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="Product Name" />
                             <TableColumn prefWidth="75.0" text="Price Paid" />
@@ -33,15 +33,15 @@
                     <top>
                         <AnchorPane prefHeight="66.0" prefWidth="894.0" BorderPane.alignment="CENTER">
                             <children>
-                                <Button layoutX="261.0" layoutY="59.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Search" />
+                                <Button layoutX="293.0" layoutY="59.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Search" />
                                 <Label layoutX="358.0" layoutY="5.0" text="Order History">
                                     <font>
                                         <Font size="30.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="21.0" layoutY="59.0" prefHeight="31.0" prefWidth="235.0" promptText="search by name or id" />
+                                <TextField layoutX="21.0" layoutY="59.0" prefHeight="31.0" prefWidth="261.0" promptText="search by name or id" />
                         <Button layoutX="21.0" layoutY="19.0" mnemonicParsing="false" onAction="#onlogoutbtn" style="-fx-background-color: red;" text="Log Out" textFill="#ebdfdf" />
-                        <Button layoutX="806.0" layoutY="59.0" mnemonicParsing="false" onAction="#onbackbtn" prefHeight="31.0" prefWidth="62.0" text="Back" />
+                        <Button layoutX="911.0" layoutY="59.0" mnemonicParsing="false" onAction="#onbackbtn" prefHeight="31.0" prefWidth="62.0" text="Back" />
                             </children>
                         </AnchorPane>
                     </top>

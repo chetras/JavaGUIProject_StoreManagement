@@ -35,7 +35,7 @@ public class logincontroller {
             for (User user : users) {
                 if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                         wronglogin.setText("Success - User Dashboard");
-                        m.changeScene("user-dashboard.fxml");
+                        m.changeScene("userdashboard.fxml");
                         return;
                 }
                 else if(username.equals("admin") && password.equals("123")){

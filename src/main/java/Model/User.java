@@ -12,22 +12,24 @@ public class User implements Serializable {
     }
 
     private String fullname;
-    private String role;
+    private int ordercount;
     private String username;
     private String email;
     private String password;
+
+    public int getOrdercount() {
+        return ordercount;
+    }
+
+    public void setOrdercount(int ordercount) {
+        this.ordercount = ordercount;
+    }
 
     public User() {
 
     }
 
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public String getUsername() {
         return username;
