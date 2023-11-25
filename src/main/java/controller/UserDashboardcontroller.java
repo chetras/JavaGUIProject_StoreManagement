@@ -1,12 +1,12 @@
 package controller;
 
 import Model.Product;
-import Model.User;
 import com.store.logininterface.main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -14,12 +14,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class UserDashboardcontroller {
+public class UserDashboardcontroller implements Initializable {
     private static final String FILE_PATH = "Product.txt";
     private final ObservableList<Product> list = FXCollections.observableArrayList();
 
@@ -61,9 +62,14 @@ public class UserDashboardcontroller {
             me.changeScene("login-view.fxml");
         }
 
+    public void onhistorybtn(Event e) throws IOException{
+        main me = new main();
+        me.changeScene("userhistory.fxml");
+    }
+
     public void onOrderbtn(Event e) throws IOException{
         main me = new main();
-        me.changeScene("user-order.fxml");
+        me.changeScene("userorderproduct.fxml");
     }
 
     public void onHomebtn(Event e) throws IOException{
@@ -103,6 +109,9 @@ public class UserDashboardcontroller {
         input.close();
     }
 
+
+
+
     @FXML
     protected void displayuserTable() throws FileNotFoundException {
         initeCols();
@@ -132,6 +141,8 @@ public class UserDashboardcontroller {
         input.close();
     }
 
+
+
     private ArrayList<Product> readProduct() throws IOException
     {
         ArrayList<Product> products = new ArrayList<>();
@@ -157,6 +168,16 @@ public class UserDashboardcontroller {
 
         }
         return products;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initeCols();
+        try {
+            loadData();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
