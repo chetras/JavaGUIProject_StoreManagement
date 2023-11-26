@@ -16,6 +16,7 @@ public class User implements Serializable {
     private String username;
     private String email;
     private String password;
+    private boolean isActive;
 
     public int getOrdercount() {
         return ordercount;
@@ -26,7 +27,16 @@ public class User implements Serializable {
     }
 
     public User() {
+        isActive = true; // Set the initial account status to active
 
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     public String getUsername() {

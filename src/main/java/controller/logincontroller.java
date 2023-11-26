@@ -33,19 +33,18 @@ public class logincontroller {
         List<User> users = UserDataHandler.loadUsers();
         if (users != null) {
             for (User user : users) {
-                if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                        wronglogin.setText("Success - User Dashboard");
-                        m.changeScene("userdashboard.fxml");
-                        return;
-                }
-                else if(username.equals("admin") && password.equals("123")){
-                    wronglogin.setText("Success - Admin Dashboard");
-                    m.changeScene("admin-dashboard.fxml");
+                if (user.getUsername().equals(username) && user.getPassword().equals(password) && user.isActive()) {
+                    wronglogin.setText("Success - User Dashboard");
+                    m.changeScene("userdashboard.fxml");
                     return;
                 }
             }
         }
-        if (username.isEmpty() || password.isEmpty()) {
+
+        if (username.equals("admin") && password.equals("123")) {
+            wronglogin.setText("Success - Admin Dashboard");
+            m.changeScene("admin-dashboard.fxml");
+        } else if (username.isEmpty() || password.isEmpty()) {
             wronglogin.setText("Please enter both username and password.");
         } else {
             wronglogin.setText("Wrong username or password");

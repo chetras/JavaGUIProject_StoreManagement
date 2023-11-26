@@ -1,5 +1,7 @@
 package Model;
 
+import Model.User;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +55,24 @@ public class UserDataHandler {
             e.printStackTrace();
         }
         return users;
+    }
+
+    public static void deleteUser(User user) {
+        List<User> users = loadUsers();
+        users.remove(user);
+        saveUsers(users);
+        System.out.println("User deleted: " + user.getUsername());
+    }
+
+    static void saveUsers(List<User> users) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_PATH))) {
+            for (User u : users) {
+                if (u.isActive()) {
+                    writer.println(u.getFullname() + "," + u.getUsername() + "," + u.getEmail() + "," + u.getPassword());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

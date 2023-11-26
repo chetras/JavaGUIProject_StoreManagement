@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminCustomersController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminCustomersController">
    <children>
        <StackPane fx:id="customersContent" maxWidth="1000.0" prefHeight="700.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
@@ -31,10 +30,11 @@
                                 <children>
                                     <TextField layoutX="1.0" layoutY="2.0" prefHeight="25.0" prefWidth="291.0" promptText="search customer" />
                                     <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: lightblue;" text="Search" textFill="#f5f2f2" />
+                              <TextField fx:id="txtremove" layoutX="382.0" layoutY="4.0" />
                                 </children>
                              </AnchorPane>
                         <Button mnemonicParsing="false" onAction="#gobackbutton" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: blue;" text="Back" textFill="#f2eded" GridPane.columnIndex="1" />
-                        <Button mnemonicParsing="false" text="Delete" GridPane.columnIndex="1">
+                        <Button fx:id="deletebutton" mnemonicParsing="false" onAction="#deletebuttononaction" text="Delete" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets right="350.0" />
                            </GridPane.margin>
