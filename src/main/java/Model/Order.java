@@ -6,17 +6,35 @@ public class Order {
     private String productPrice;
     private String productCategory;
     private String productStock;
+    private String productTotalprice;
+    private String username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public Order(){
 
     }
 
-    public Order(String productID, String productName, String productPrice, String productStock) {
+    public String getProductTotalprice() {
+        return productTotalprice;
+    }
+
+    public void setProductTotalprice(String productTotalprice) {
+        this.productTotalprice = productTotalprice;
+    }
+
+    public Order(String productID, String productName, String productPrice, String productStock, String productTotalprice) {
         this.productID = productID;
         this.productName= productName;
         this.productPrice = productPrice;
-        this.productStock = productStock;
-
+        this.productStock=productStock;
+        this.productTotalprice = productTotalprice;
     }
 
     public String getProductID() {

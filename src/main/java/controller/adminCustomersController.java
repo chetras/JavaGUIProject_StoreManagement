@@ -118,7 +118,7 @@ public class adminCustomersController {
         }
     }
 
-    private static void saveUsers(List<User> users) throws IOException {
+    public static void saveUsers(List<User> users) throws IOException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_PATH))) {
             for (User u : users) {
                 writer.println(u.getFullname() + "," + u.getUsername() + "," + u.getEmail() + "," + u.getPassword() + "," + u.getOrdercount());

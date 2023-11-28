@@ -7,6 +7,14 @@ public class User implements Serializable {
         return fullname;
     }
 
+    public User(String fullname,  String username, String email, String password, int ordercount) {
+        this.fullname = fullname;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.ordercount = ordercount;
+    }
+
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }

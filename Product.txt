@@ -1,4 +1,4 @@
-003,Streak,50$,Food,8
-001,Coke,1$,Drink,90
-002,Cake,5$,Food,100
-004,Apple,0.5$,Fruit,50
+003,Steak,50$,Food,20
+001,Coke,1$,Drink,30
+002,Cake,5$,Food,25
+004,Apple,1$,Fruit,150

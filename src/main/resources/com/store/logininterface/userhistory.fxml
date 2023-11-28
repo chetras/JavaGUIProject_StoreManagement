@@ -18,11 +18,12 @@
                      <children>
                         <TableView layoutX="9.0" layoutY="18.0" prefHeight="538.0" prefWidth="964.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Product ID" />
-                            <TableColumn prefWidth="75.0" text="Product Name" />
-                              <TableColumn prefWidth="75.0" text="Price Paid" />
-                              <TableColumn prefWidth="75.0" text="Order Date" />
-                              <TableColumn prefWidth="75.0" text="Customer" />
+                            <TableColumn fx:id="ProdID" prefWidth="75.0" text="Product ID" />
+                            <TableColumn fx:id="ProdName" prefWidth="75.0" text="Product Name" />
+                              <TableColumn fx:id="PricePaia" prefWidth="75.0" text="Price Paid" />
+                              <TableColumn fx:id="Quantity" prefWidth="75.0" text="Quantity" />
+                              <TableColumn fx:id="TotalPrice" prefWidth="75.0" text="Totle Price" />
+                              <TableColumn fx:id="Customer" prefWidth="75.0" text="Customer" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

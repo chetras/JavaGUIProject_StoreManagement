@@ -21,6 +21,14 @@ public class logincontroller {
     @FXML
     public PasswordField passwordfield;
 
+    private static User currentUser;
+
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+
+
+
     public void handleloginbutton(Event e) throws IOException {
         checkLogin();
     }
@@ -35,6 +43,7 @@ public class logincontroller {
             for (User user : users) {
                 if (user.getUsername().equals(username) && user.getPassword().equals(password) && user.isActive()) {
                     wronglogin.setText("Success - User Dashboard");
+                    currentUser = user;
                     m.changeScene("userdashboard.fxml");
                     return;
                 }
@@ -43,6 +52,8 @@ public class logincontroller {
 
         if (username.equals("admin") && password.equals("123")) {
             wronglogin.setText("Success - Admin Dashboard");
+            // For the admin, you might not need to set the current user.
+            // AppData.getInstance().setCurrentUser(null);
             m.changeScene("admin-dashboard.fxml");
         } else if (username.isEmpty() || password.isEmpty()) {
             wronglogin.setText("Please enter both username and password.");

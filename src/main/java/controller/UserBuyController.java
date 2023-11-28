@@ -2,6 +2,8 @@ package controller;
 
 import Model.Order;
 import Model.Product;
+import Model.User;
+import Model.UserDataHandler;
 import com.store.logininterface.main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +25,7 @@ public class UserBuyController implements Initializable {
     private final ObservableList<Product> prodctlist = FXCollections.observableArrayList();
     private final ObservableList<Order> userOrders = FXCollections.observableArrayList();
     private int totalprice = 0;
+    User currentUser = logincontroller.getCurrentUser();
 
     @FXML
     private Label totalprices;
@@ -119,7 +122,7 @@ public class UserBuyController implements Initializable {
             int price = Integer.parseInt(priceString);
             int orderprice = price * stock;
 
-            Order order = new Order(selectedProduct.getProductID(), selectedProduct.getProductName(),selectedProduct.getPrice(),String.valueOf(stock));
+            Order order = new Order(selectedProduct.getProductID(), selectedProduct.getProductName(),selectedProduct.getPrice(),String.valueOf(stock),String.valueOf(orderprice));
             userOrders.add(order);
 
             totalprice+=orderprice;
@@ -127,10 +130,17 @@ public class UserBuyController implements Initializable {
             totalprices.setText("$" + totalprice);
 
             // Update user orders file
-            AppData.getInstance().getUserOrders().add(order);
+            saveUserOrder(order);
 
             // Update product stock in the Product.txt file
             updateProductStock(selectedProduct, stock);
+            // Update logged-in user's order count
+            if (currentUser != null) {
+                UserDataHandler.updateUseroderCount(currentUser.getUsername(), stock);
+            } else {
+                System.out.println("User not authenticated.");
+            }
+
 
             loadData();
 
@@ -141,9 +151,12 @@ public class UserBuyController implements Initializable {
 
     private void saveUserOrder(Order order)throws IOException{
         try (PrintWriter writer = new PrintWriter(new FileWriter(USER_ORDERS_FILE_PATH))){
-            writer.println(order.getProductID() + "," + order.getProductName() +","+  order.getProductPrice()+","+order.getProductStock());
+            writer.println(order.getProductID() + "," + order.getProductName() +","+  order.getProductPrice()+","+order.getProductStock()+","+order.getProductTotalprice()+","+currentUser.getUsername());
             System.out.println("Order placed successfully");
+        }catch (NullPointerException e){
+
         }
+
     }
 
     private void updateProductStock(Product updatedproduct, int quantity) throws IOException {
@@ -164,8 +177,6 @@ public class UserBuyController implements Initializable {
             System.out.println(product);
         }
         saveProductList(products);
-        AppData.getInstance().getProductList().setAll(products);
-
     }
 
     private ArrayList<Product> readProduct() throws IOException

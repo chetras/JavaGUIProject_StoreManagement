@@ -59,5 +59,7 @@
         <TextField fx:id="txtProdStock" layoutX="220.0" layoutY="655.0" prefHeight="31.0" prefWidth="240.0" promptText="ProductStock" />
         <Button layoutX="475.0" layoutY="541.0" mnemonicParsing="false" onAction="#displayuserTable" prefHeight="35.0" prefWidth="116.0" text="Show All Product" />
         <Label fx:id="text" layoutX="511.0" layoutY="655.0" prefHeight="21.0" prefWidth="214.0" textAlignment="CENTER" />
+      <Label layoutX="177.0" layoutY="14.0" prefHeight="31.0" prefWidth="101.0" text="Welcome" />
+      <Label fx:id="currentUser" layoutX="252.0" layoutY="14.0" prefHeight="31.0" prefWidth="87.0" />
     </children>
 </AnchorPane>
