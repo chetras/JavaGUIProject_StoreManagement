@@ -30,7 +30,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="wronglogin" layoutX="248.0" layoutY="538.0" prefHeight="21.0" prefWidth="176.0" textAlignment="CENTER" />
+                  <Label fx:id="wronglogin" layoutX="414.0" layoutY="589.0" prefHeight="21.0" prefWidth="176.0" textAlignment="CENTER" />
                   <Label layoutX="218.0" layoutY="153.0" prefHeight="111.0" prefWidth="593.0" text="Store Management System">
                      <font>
                         <Font size="48.0" />

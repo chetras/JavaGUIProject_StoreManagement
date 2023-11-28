@@ -16,8 +16,8 @@
                   <top>
                       <GridPane alignment="CENTER_RIGHT" BorderPane.alignment="CENTER_RIGHT">
                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="540.9999694824219" minWidth="10.0" prefWidth="540.9999694824219" />
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="465.0" minWidth="10.0" prefWidth="399.0000305175781" />
                           </columnConstraints>
                           <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -28,17 +28,13 @@
                          <children>
                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                 <children>
-                                    <TextField layoutX="1.0" layoutY="2.0" prefHeight="25.0" prefWidth="291.0" promptText="search customer" />
-                                    <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" prefHeight="26.0" style="-fx-background-color: lightblue;" text="Search" textFill="#f5f2f2" />
-                              <TextField fx:id="txtremove" layoutX="382.0" layoutY="4.0" />
+                                    <TextField fx:id="txtusername" layoutX="1.0" layoutY="2.0" prefHeight="25.0" prefWidth="291.0" promptText="search by username " />
+                                    <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchonclick" prefHeight="26.0" style="-fx-background-color: lightblue;" text="Search" textFill="#f5f2f2" />
+                              <Button fx:id="deletebutton" layoutX="461.0" layoutY="2.0" mnemonicParsing="false" onAction="#deletebuttononaction" text="Delete" />
+                              <Button layoutX="367.0" layoutY="1.0" mnemonicParsing="false" onAction="#showuser" text="Show  User" />
                                 </children>
                              </AnchorPane>
                         <Button mnemonicParsing="false" onAction="#gobackbutton" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: blue;" text="Back" textFill="#f2eded" GridPane.columnIndex="1" />
-                        <Button fx:id="deletebutton" mnemonicParsing="false" onAction="#deletebuttononaction" text="Delete" GridPane.columnIndex="1">
-                           <GridPane.margin>
-                              <Insets right="350.0" />
-                           </GridPane.margin>
-                        </Button>
                          </children>
                       </GridPane>
                   </top>

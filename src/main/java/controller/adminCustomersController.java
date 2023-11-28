@@ -12,10 +12,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import static Model.UserDataHandler.loadUsers;
 
@@ -41,11 +44,42 @@ public class adminCustomersController {
     private Button deletebutton;
 
     @FXML
-    private TextField txtremove;
+    private TextField txtusername;
 
     public void gobackbutton(Event e) throws IOException {
         main me = new main();
         me.changeScene("admin-dashboard.fxml");
+    }
+
+    public void searchonclick(Event e) throws IOException {
+        String usernameToSearch = txtusername.getText();
+        if (!usernameToSearch.isEmpty()) {
+            searchuser(usernameToSearch);
+        } else {
+            ObservableList<User> users = FXCollections.observableArrayList(loadUsers());
+            tableCustomersPage.setItems(users);
+        }
+        txtusername.setText("");
+    }
+
+    public void showAllUsers() throws IOException {
+        ObservableList<User> users = FXCollections.observableArrayList(loadUsers());
+        tableCustomersPage.setItems(users);
+    }
+
+    public void showuser(Event e) throws IOException{
+        showAllUsers();
+    }
+
+    public void searchuser(String username) throws IOException {
+        ObservableList<User> users = FXCollections.observableArrayList(loadUsers());
+        ArrayList<User> search = new ArrayList<>();
+        for (User user : users) {
+            if (user.getUsername().equalsIgnoreCase(username)) {
+                search.add(user);
+            }
+        }
+        tableCustomersPage.setItems(FXCollections.observableArrayList(search));
     }
 
     public void initialize(){
@@ -81,6 +115,8 @@ public class adminCustomersController {
             saveUsers(users);
         }
     }
+
+
 
     private static void saveUsers(List<User> users) throws IOException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_PATH))) {

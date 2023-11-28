@@ -94,7 +94,7 @@ public class AdminDashboardcontroller implements Initializable {
 
     public void onHomebtn(Event e) throws IOException{
         main me = new main();
-        me.changeScene("user-home.fxml");
+        me.changeScene("adminhome.fxml");
     }
 
     private ArrayList<Product> readProduct() throws IOException {

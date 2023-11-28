@@ -1,5 +1,6 @@
 package controller;
 
+import Model.Order;
 import Model.Product;
 import com.store.logininterface.main;
 import javafx.collections.FXCollections;
@@ -7,21 +8,30 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class UserBuyController implements Initializable {
-    private static final String FILE_PATH = "Product.txt";
-    private final ObservableList<Product> list = FXCollections.observableArrayList();
+    private static final String PRODUCT_FILE_PATH = "Product.txt";
+    private static final String USER_ORDERS_FILE_PATH = "user-order.txt";
+    private final ObservableList<Product> prodctlist = FXCollections.observableArrayList();
+    private final ObservableList<Product> userOrders = FXCollections.observableArrayList();
+
+    @FXML
+    private Label totalprices;
+
+    @FXML
+    private ComboBox<Product> product_id;
+
+    @FXML
+    private TextField stockfield;
+
     @FXML
     private TableView<Product> productData;
 
@@ -66,25 +76,88 @@ public class UserBuyController implements Initializable {
     }
 
     public void loadData() throws FileNotFoundException{
-        list.clear();
-        Scanner input = new Scanner(new File(FILE_PATH));
+        prodctlist.clear();
+        Scanner input = new Scanner(new File(PRODUCT_FILE_PATH));
+
+        product_id.getItems().clear();
         while (input.hasNextLine()){
             String[] str = input.nextLine().split(",");
             if (str.length == 5) {
-                list.add(new Product(str[0], str[1], str[2], str[3], str[4]));
+                Product product = new Product(str[0], str[1], str[2], str[3], str[4]);
+                prodctlist.add(product);
+                product_id.getItems().add(product); // Add the product to the ComboBox
             } else {
                 // Handle the case where the array doesn't have enough elements
                 System.err.println("Invalid data format: " );
             }
         }
-        productData.setItems(list);
+        productData.setItems(prodctlist);
         input.close();
+    }
+
+    @FXML
+    public void addproduct(Event e) throws IOException {
+        Product selectedProduct = product_id.getSelectionModel().getSelectedItem();
+        String stockText = stockfield.getText();
+
+        if (selectedProduct != null && !stockText.isEmpty()) {
+            int stock = Integer.parseInt(stockText);
+
+            if (stock <= 0) {
+                System.out.println("Invalid quantity");
+                return;
+            }
+
+            int availableStock = Integer.parseInt(selectedProduct.getProductStocks());
+
+            if (stock > availableStock) {
+                System.out.println("Insufficient stock");
+                return;
+            }
+            String priceString = selectedProduct.getPrice().replaceAll("\\$", "");
+            int price = Integer.parseInt(priceString);
+            int totalPrice = price * stock;
+            // Update the total price label
+            totalprices.setText("$" + totalPrice);
+            // Update user orders file
+            saveUserOrder(selectedProduct, stock);
+
+            // Update product stock in the Product.txt file
+            updateProductStock(selectedProduct, stock);
+
+            // Refresh the product data
+            loadData();
+
+            product_id.getSelectionModel().clearSelection();
+            stockfield.clear();
+        }
+    }
+
+    private void saveUserOrder(Product product, int stock)throws IOException{
+        try (PrintWriter writer = new PrintWriter(new FileWriter(USER_ORDERS_FILE_PATH))){
+            writer.println(product.getProductID() + "," + product.getProductName() +","+  product.getPrice()+","+stock);
+            System.out.println("Order placed successfully");
+        }
+    }
+
+    private void updateProductStock(Product updatedproduct, int quantity) throws IOException{
+        ArrayList<Product> products = readProduct();
+
+        for (Product product : products){
+            if (product.getProductID().equals(updatedproduct.getProductID())){
+                int stock = Integer.parseInt(product.getProductStocks());
+                stock-=quantity;
+                product.setProductStocks(String.valueOf(stock));
+                break;
+            }
+        }
+        saveProductList(products);
     }
 
     private ArrayList<Product> readProduct() throws IOException
     {
         ArrayList<Product> products = new ArrayList<>();
-        File file = new File(FILE_PATH);
+        File file = new File(PRODUCT_FILE_PATH);
 
         if(!file.exists()){
             return products;
@@ -106,6 +179,19 @@ public class UserBuyController implements Initializable {
 
         }
         return products;
+    }
+
+    private void saveProductList(ArrayList<Product> products) throws IOException{   //to update the stock of the product in our product txt file when the user buy the product
+        try(PrintWriter writer = new PrintWriter(new FileWriter(PRODUCT_FILE_PATH))){
+            for (Product product : products){
+                writer.println(product.getProductID() + "," +
+                        product.getProductName() + "," +
+                        product.getPrice() + "," +
+                        product.getCatagory() + "," +
+                        product.getProductStocks());
+            }
+            System.out.println("Product list updated successfully");
+        }
     }
 
     @Override

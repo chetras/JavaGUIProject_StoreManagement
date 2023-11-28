@@ -18,6 +18,7 @@ public class main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
         primaryStage.setTitle("Store Management System");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

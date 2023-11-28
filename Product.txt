@@ -1,3 +1,2 @@
-001,a,a,a,a
-002,s,s,s,s
-005,f,f,f,f
+003,Streak,50$,Food,25
+001,Coke,2$,Drink,80
