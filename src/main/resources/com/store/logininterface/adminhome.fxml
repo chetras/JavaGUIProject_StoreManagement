@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.chart.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Adminhomecontroller">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Adminhomecontroller">
     <children>
         <Label layoutX="446.0" layoutY="8.0" prefHeight="35.0" prefWidth="286.0" text="Store Management System" textFill="#222121">
             <font>
@@ -21,11 +20,6 @@
                           <children>
                               <AnchorPane prefHeight="699.0" prefWidth="137.0">
                                   <children>
-                                      <Button layoutX="21.0" layoutY="515.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Setting">
-                                          <font>
-                                              <Font size="14.0" />
-                                          </font>
-                                      </Button>
                                       <Button layoutX="21.0" layoutY="176.0" mnemonicParsing="false" onAction="#onHomebtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Home">
                                           <font>
                                               <Font size="14.0" />
