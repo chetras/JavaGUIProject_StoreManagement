@@ -64,12 +64,10 @@ public class UserDataHandler {
         System.out.println("User deleted: " + user.getUsername());
     }
 
-    static void saveUsers(List<User> users) {
+    public static void saveUsers(List<User> users) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_PATH))) {
             for (User u : users) {
-                if (u.isActive()) {
-                    writer.println(u.getFullname() + "," + u.getUsername() + "," + u.getEmail() + "," + u.getPassword());
-                }
+                    writer.println(u.getFullname() + "," + u.getUsername() + "," + u.getEmail() + "," + u.getPassword()+"," +u.getOrdercount());
             }
         } catch (IOException e) {
             e.printStackTrace();

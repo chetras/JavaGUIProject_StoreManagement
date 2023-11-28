@@ -11,6 +11,14 @@ public class Order {
 
     }
 
+    public Order(String productID, String productName, String productPrice, String productStock) {
+        this.productID = productID;
+        this.productName= productName;
+        this.productPrice = productPrice;
+        this.productStock = productStock;
+
+    }
+
     public String getProductID() {
         return productID;
     }

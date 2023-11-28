@@ -18,10 +18,10 @@
                      <children>
                         <TableView layoutX="9.0" layoutY="18.0" prefHeight="538.0" prefWidth="964.0">
                           <columns>
+                            <TableColumn prefWidth="75.0" text="Product ID" />
                             <TableColumn prefWidth="75.0" text="Product Name" />
-                            <TableColumn prefWidth="75.0" text="Price Paid" />
+                              <TableColumn prefWidth="75.0" text="Price Paid" />
                               <TableColumn prefWidth="75.0" text="Order Date" />
-                              <TableColumn prefWidth="75.0" text="Order Status" />
                               <TableColumn prefWidth="75.0" text="Customer" />
                           </columns>
                            <columnResizePolicy>

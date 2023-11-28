@@ -21,7 +21,8 @@ public class UserBuyController implements Initializable {
     private static final String PRODUCT_FILE_PATH = "Product.txt";
     private static final String USER_ORDERS_FILE_PATH = "user-order.txt";
     private final ObservableList<Product> prodctlist = FXCollections.observableArrayList();
-    private final ObservableList<Product> userOrders = FXCollections.observableArrayList();
+    private final ObservableList<Order> userOrders = FXCollections.observableArrayList();
+    private int totalprice = 0;
 
     @FXML
     private Label totalprices;
@@ -88,7 +89,7 @@ public class UserBuyController implements Initializable {
                 product_id.getItems().add(product); // Add the product to the ComboBox
             } else {
                 // Handle the case where the array doesn't have enough elements
-                System.err.println("Invalid data format: " );
+                System.out.println("Invalid data format: " );
             }
         }
         productData.setItems(prodctlist);
@@ -116,16 +117,21 @@ public class UserBuyController implements Initializable {
             }
             String priceString = selectedProduct.getPrice().replaceAll("\\$", "");
             int price = Integer.parseInt(priceString);
-            int totalPrice = price * stock;
+            int orderprice = price * stock;
+
+            Order order = new Order(selectedProduct.getProductID(), selectedProduct.getProductName(),selectedProduct.getPrice(),String.valueOf(stock));
+            userOrders.add(order);
+
+            totalprice+=orderprice;
             // Update the total price label
-            totalprices.setText("$" + totalPrice);
+            totalprices.setText("$" + totalprice);
+
             // Update user orders file
-            saveUserOrder(selectedProduct, stock);
+            AppData.getInstance().getUserOrders().add(order);
 
             // Update product stock in the Product.txt file
             updateProductStock(selectedProduct, stock);
 
-            // Refresh the product data
             loadData();
 
             product_id.getSelectionModel().clearSelection();
@@ -133,25 +139,33 @@ public class UserBuyController implements Initializable {
         }
     }
 
-    private void saveUserOrder(Product product, int stock)throws IOException{
+    private void saveUserOrder(Order order)throws IOException{
         try (PrintWriter writer = new PrintWriter(new FileWriter(USER_ORDERS_FILE_PATH))){
-            writer.println(product.getProductID() + "," + product.getProductName() +","+  product.getPrice()+","+stock);
+            writer.println(order.getProductID() + "," + order.getProductName() +","+  order.getProductPrice()+","+order.getProductStock());
             System.out.println("Order placed successfully");
         }
     }
 
-    private void updateProductStock(Product updatedproduct, int quantity) throws IOException{
+    private void updateProductStock(Product updatedproduct, int quantity) throws IOException {
         ArrayList<Product> products = readProduct();
 
-        for (Product product : products){
-            if (product.getProductID().equals(updatedproduct.getProductID())){
+        for (Product product : products) {
+            if (product.getProductID().equals(updatedproduct.getProductID())) {
                 int stock = Integer.parseInt(product.getProductStocks());
-                stock-=quantity;
+                stock -= quantity;
                 product.setProductStocks(String.valueOf(stock));
                 break;
             }
         }
+
+        // Print updated product list for debugging
+        System.out.println("Updated Product List:");
+        for (Product product : products) {
+            System.out.println(product);
+        }
         saveProductList(products);
+        AppData.getInstance().getProductList().setAll(products);
+
     }
 
     private ArrayList<Product> readProduct() throws IOException
@@ -181,7 +195,7 @@ public class UserBuyController implements Initializable {
         return products;
     }
 
-    private void saveProductList(ArrayList<Product> products) throws IOException{   //to update the stock of the product in our product txt file when the user buy the product
+    public void saveProductList(ArrayList<Product> products) throws IOException{   //to update the stock of the product in our product txt file when the user buy the product
         try(PrintWriter writer = new PrintWriter(new FileWriter(PRODUCT_FILE_PATH))){
             for (Product product : products){
                 writer.println(product.getProductID() + "," +

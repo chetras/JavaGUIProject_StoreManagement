@@ -1,4 +1,5 @@
 package controller;
+import Model.Product;
 import Model.User;
 import Model.UserDataHandler;
 import com.store.logininterface.main;
@@ -63,7 +64,7 @@ public class adminCustomersController {
     }
 
     public void showAllUsers() throws IOException {
-        ObservableList<User> users = FXCollections.observableArrayList(loadUsers());
+        ObservableList<User> users = FXCollections.observableArrayList(UserDataHandler.loadUsers());
         tableCustomersPage.setItems(users);
     }
 
@@ -97,10 +98,11 @@ public class adminCustomersController {
             }
         });
 
-    // Load user data and populate the table
-        ObservableList<User> users = FXCollections.observableArrayList(loadUsers());
+        // Load user data and populate the table
+        ObservableList<User> users = FXCollections.observableArrayList(UserDataHandler.loadUsers());
         tableCustomersPage.setItems(users);
     }
+
     @FXML
     public void deletebuttononaction(Event e) throws IOException{
         User selectedUser = tableCustomersPage.getSelectionModel().getSelectedItem();
@@ -112,39 +114,32 @@ public class adminCustomersController {
 
             // Now, delete the user from the 'user.txt' file
             ObservableList<User> users = tableCustomersPage.getItems();
-            saveUsers(users);
+            UserDataHandler.saveUsers(users);
         }
     }
-
-
 
     private static void saveUsers(List<User> users) throws IOException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_PATH))) {
             for (User u : users) {
-                writer.println(u.getFullname() + "," + u.getUsername() + "," + u.getEmail() + "," + u.getPassword());
+                writer.println(u.getFullname() + "," + u.getUsername() + "," + u.getEmail() + "," + u.getPassword() + "," + u.getOrdercount());
             }
             System.out.println("Users saved successfully.");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public void updateoncount(String username){
+
+    public void updateoncount(String username, int quantity) throws IOException {
         ObservableList<User> customers = tableCustomersPage.getItems();
-        User customertoUpdate = null;
-        for (User customer : customers){
-            if(customer.getUsername().equals(username) ){
-                customertoUpdate = customer;
+        for (User customer : customers) {
+            if (customer.getUsername().equals(username)) {
+                int currentOrdercount = customer.getOrdercount();
+                int newOrderCount = currentOrdercount + quantity;
+                customer.setOrdercount(newOrderCount);
                 break;
             }
         }
-
-        if (customertoUpdate != null){
-            int currentOrdercount = customertoUpdate.getOrdercount();
-            int newOrderCount = currentOrdercount + 1;
-            customertoUpdate.setOrdercount(newOrderCount);
-        }
-
         tableCustomersPage.refresh();
+        UserDataHandler.saveUsers(customers);
     }
-
 }
