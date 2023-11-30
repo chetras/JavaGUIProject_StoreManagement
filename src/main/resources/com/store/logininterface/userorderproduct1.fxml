@@ -63,7 +63,7 @@
       <Label layoutX="585.0" layoutY="550.0" text="Amount:" />
       <TextField fx:id="UserPayAmount" layoutX="672.0" layoutY="545.0" prefHeight="31.0" prefWidth="150.0" promptText="\$0.0" />
       <Button layoutX="585.0" layoutY="594.0" mnemonicParsing="false" onAction="#Paybtn" prefHeight="47.0" prefWidth="87.0" text="Pay" />
-      <Button layoutX="711.0" layoutY="594.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="87.0" text="Recept" />
+      <Button fx:id="buttonre" layoutX="711.0" layoutY="594.0" mnemonicParsing="false" onAction="#displayreceipt" prefHeight="47.0" prefWidth="87.0" text="Recept" />
       <Label fx:id="displaylable" layoutX="349.0" layoutY="655.0" prefHeight="31.0" prefWidth="349.0" />
     </children>
 </AnchorPane>

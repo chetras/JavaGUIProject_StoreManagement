@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 
 import java.io.*;
 import java.net.URL;
@@ -29,6 +30,9 @@ public class UserBuyController implements Initializable {
 
     @FXML
     private Label displaylable;
+
+    @FXML
+    private Button buttonre;
 
     @FXML
     private TextField UserPayAmount;
@@ -243,13 +247,27 @@ public class UserBuyController implements Initializable {
     }
 
     private void savePurchaseDetails(ObservableList<Order> orders, int total, int enteredAmount, int change){
-        try(PrintWriter writer = new PrintWriter(new FileWriter("purchase-details.txt",true))){
-            for (Order order : orders){
-                writer.write("Receipt: \n" + "Product ID : " +order.getProductID() + " \nProduct Name: " +order.getProductName() + "\nTotal Price: "+total + "\nTotal Change: "+change + "\nCustomer Username: "+currentUser.getUsername()+"\n");
+        String purchaseDetailsFilename = "purchase-details-" + currentUser.getUsername();
+        try (PrintWriter purchaseWriter = new PrintWriter(new FileWriter(purchaseDetailsFilename,true));
+             PrintWriter AllproductWriter = new PrintWriter(new FileWriter("Allpurchased-details.txt",true))) {
 
+            for (Order order : orders) {
+                // Save purchase details
+                purchaseWriter.write("Receipt: \n" +
+                        "Product ID : " + order.getProductID() +
+                        "\nProduct Name: " + order.getProductName() +
+                        "\nTotal Price: " + total +
+                        "\nTotal Change: " + change +
+                        "\nCustomer Username: " + currentUser.getUsername() + "\n");
+
+                // Save product details
+                AllproductWriter.println("Product ID: " + order.getProductID() +
+                        " \nProduct Name: " + order.getProductName() +
+                        "\nQuantity: " + order.getProductStock() +
+                        "\nTotal Price: " + order.getProductTotalprice() +
+                        "\nCustomer Name: "+currentUser.getUsername());
             }
-
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -261,5 +279,39 @@ public class UserBuyController implements Initializable {
         UserPayAmount.clear();
     }
 
+    @FXML
+    private void displayreceipt(Event e){
+        String purchaseDetailsFilename = "purchase-details-" + currentUser.getUsername();
 
+        try (BufferedReader br = new BufferedReader(new FileReader(purchaseDetailsFilename))){
+            StringBuilder content = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null){
+                content.append(line).append("\n");
+            }
+
+            //Create a new Dialog
+            Dialog<String> dialog = new Dialog<>();
+            dialog.setTitle("Receipt");
+
+            //Set custom content
+            TextArea textArea = new TextArea(content.toString());
+            textArea.setEditable(false);
+            textArea.setWrapText(true);
+
+            //Set the dialog content
+            GridPane gridPane = new GridPane();
+            gridPane.add(textArea ,0,0);
+            dialog.getDialogPane().setContent(gridPane);
+
+            //Add Ok button to the dialog
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+
+            //set the dialog to bedisplayed above the current screen
+            dialog.initOwner(buttonre.getScene().getWindow());
+            dialog.showAndWait();
+        }catch (IOException a){
+            a.printStackTrace();
+        }
+    }
 }
