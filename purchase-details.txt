@@ -1,0 +1,18 @@
+Receipt: 
+Product ID : 002 
+Product Name: Cake
+Total Price: 15
+Total Change: 0
+Customer Username: aa
+Receipt: 
+Product ID : 001 
+Product Name: Coke
+Total Price: 15
+Total Change: 0
+Customer Username: aa
+Receipt: 
+Product ID : 003 
+Product Name: Steak
+Total Price: 500
+Total Change: 0
+Customer Username: aa

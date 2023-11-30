@@ -28,6 +28,12 @@ public class UserBuyController implements Initializable {
     User currentUser = logincontroller.getCurrentUser();
 
     @FXML
+    private Label displaylable;
+
+    @FXML
+    private TextField UserPayAmount;
+
+    @FXML
     private Label totalprices;
 
     @FXML
@@ -103,35 +109,27 @@ public class UserBuyController implements Initializable {
     public void addproduct(Event e) throws IOException {
         Product selectedProduct = product_id.getSelectionModel().getSelectedItem();
         String stockText = stockfield.getText();
-
         if (selectedProduct != null && !stockText.isEmpty()) {
             int stock = Integer.parseInt(stockText);
-
             if (stock <= 0) {
-                System.out.println("Invalid quantity");
+                displaylable.setText("Invalid Quantity ");
                 return;
             }
-
             int availableStock = Integer.parseInt(selectedProduct.getProductStocks());
-
             if (stock > availableStock) {
-                System.out.println("Insufficient stock");
+                displaylable.setText("Not Enough Stock please select different Product");
                 return;
             }
             String priceString = selectedProduct.getPrice().replaceAll("\\$", "");
             int price = Integer.parseInt(priceString);
             int orderprice = price * stock;
-
             Order order = new Order(selectedProduct.getProductID(), selectedProduct.getProductName(),selectedProduct.getPrice(),String.valueOf(stock),String.valueOf(orderprice));
             userOrders.add(order);
-
             totalprice+=orderprice;
             // Update the total price label
             totalprices.setText("$" + totalprice);
-
             // Update user orders file
             saveUserOrder(order);
-
             // Update product stock in the Product.txt file
             updateProductStock(selectedProduct, stock);
             // Update logged-in user's order count
@@ -140,10 +138,7 @@ public class UserBuyController implements Initializable {
             } else {
                 System.out.println("User not authenticated.");
             }
-
-
             loadData();
-
             product_id.getSelectionModel().clearSelection();
             stockfield.clear();
         }
@@ -152,7 +147,7 @@ public class UserBuyController implements Initializable {
     private void saveUserOrder(Order order)throws IOException{
         try (PrintWriter writer = new PrintWriter(new FileWriter(USER_ORDERS_FILE_PATH ,true))){
             writer.println(order.getProductID() + "," + order.getProductName() +","+  order.getProductPrice()+","+order.getProductStock()+","+order.getProductTotalprice()+","+currentUser.getUsername());
-            System.out.println("Order placed successfully");
+            displaylable.setText("Product added Successfully");
         }catch (NullPointerException e){
 
         }
@@ -161,7 +156,6 @@ public class UserBuyController implements Initializable {
 
     private void updateProductStock(Product updatedproduct, int quantity) throws IOException {
         ArrayList<Product> products = readProduct();
-
         for (Product product : products) {
             if (product.getProductID().equals(updatedproduct.getProductID())) {
                 int stock = Integer.parseInt(product.getProductStocks());
@@ -171,11 +165,6 @@ public class UserBuyController implements Initializable {
             }
         }
 
-        // Print updated product list for debugging
-        System.out.println("Updated Product List:");
-        for (Product product : products) {
-            System.out.println(product);
-        }
         saveProductList(products);
     }
 
@@ -228,5 +217,49 @@ public class UserBuyController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    public void Paybtn(Event e) {
+        try {
+            String enterAmountText = UserPayAmount.getText();
+            if (enterAmountText.isEmpty()) {
+                displaylable.setText("Please entered the amount");
+                return;
+            }
+
+            int enteredAmount = Integer.parseInt(enterAmountText);
+            int change = enteredAmount - totalprice;
+            if (change >= 0) {
+                displaylable.setText("Payment Successful");
+                savePurchaseDetails(userOrders, totalprice, enteredAmount, change);
+                clearUserCart();
+            } else {
+                displaylable.setText("Insufficient funds. Please enter a higher amount.");
+            }
+        } catch (NumberFormatException ex) {
+            displaylable.setText("Invalid amount. Please enter a valid number.");
+        }
+
+    }
+
+    private void savePurchaseDetails(ObservableList<Order> orders, int total, int enteredAmount, int change){
+        try(PrintWriter writer = new PrintWriter(new FileWriter("purchase-details.txt",true))){
+            for (Order order : orders){
+                writer.write("Receipt: \n" + "Product ID : " +order.getProductID() + " \nProduct Name: " +order.getProductName() + "\nTotal Price: "+total + "\nTotal Change: "+change + "\nCustomer Username: "+currentUser.getUsername()+"\n");
+
+            }
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void clearUserCart(){
+        userOrders.clear();
+        totalprice = 0;
+        totalprices.setText("$"+totalprice);
+        UserPayAmount.clear();
+    }
+
 
 }
