@@ -27,6 +27,9 @@ import java.util.ResourceBundle;
 public class Adminhomecontroller implements Initializable {
 
     @FXML
+    private Label totalincome;
+
+    @FXML
     private Label numberOfCustomersLabel;
 
     @FXML
@@ -70,6 +73,7 @@ public class Adminhomecontroller implements Initializable {
         try {
             int numberOfCustomers = countCustomers();
             numberOfCustomersLabel.setText(String.valueOf(numberOfCustomers));
+            updateTotalIncome();
             //loadChartData();
         } catch (IOException e) {
             e.printStackTrace();
@@ -86,6 +90,22 @@ public class Adminhomecontroller implements Initializable {
         }
 
         return count;
+    }
+
+    private void updateTotalIncome(){
+        try (BufferedReader br = new BufferedReader(new FileReader("Allpurchased-details.txt"))){
+            String line;
+            int Totalincome= 0;
+
+            while ((line = br.readLine()) != null){
+                if (line.startsWith("Total Price: ")){
+                    Totalincome += Integer.parseInt(line.split(":")[1].trim());
+                }
+            }
+            totalincome.setText("$"+Totalincome);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /*private void loadChartData() throws IOException{
