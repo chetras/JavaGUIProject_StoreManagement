@@ -1,4 +1,5 @@
-003,Steak,50$,Food,20
-001,Coke,1$,Drink,30
-002,Cake,5$,Food,25
-004,Apple,1$,Fruit,150
+003,Steak,50$,Food,100
+001,Coke,1$,Drink,55
+002,Cake,5$,Food,2
+004,Apple,1$,Fruit,110
+005,Nando,1$,Snacks,40

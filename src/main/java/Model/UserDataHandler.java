@@ -92,4 +92,42 @@ public class UserDataHandler {
         }
         saveUsers(users);
     }
+
+    public static ObservableList<Order> loadOrderHistory(String username) {
+        ObservableList<Order> orderHistory = FXCollections.observableArrayList();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("user-order.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 6 && parts[5].equals(username)) {
+                    Order order = new Order();
+                    order.setProductID(parts[0]);
+                    order.setProductName(parts[1]);
+                    order.setProductPrice(parts[2]);
+                    order.setProductStock(parts[3]);
+                    order.setProductTotalprice(parts[4]);
+                    order.setUsername(parts[5]);
+
+                    orderHistory.add(order);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return orderHistory;
+    }
+
+    public static User findUserbyUserName(String username){
+        ObservableList<User> users = loadUsers();
+
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
 }

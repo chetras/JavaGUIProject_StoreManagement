@@ -78,12 +78,12 @@
                <children>
                   <AnchorPane layoutX="7.0" layoutY="-1.0" prefHeight="246.0" prefWidth="825.0" style="-fx-background-color: grey;">
                      <children>
-                        <BarChart prefHeight="257.0" prefWidth="825.0" title="Number of item order">
+                        <BarChart fx:id="orderchart" prefHeight="257.0" prefWidth="825.0" title="Number of item order">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" />
+                            <CategoryAxis side="BOTTOM" fx:id="xAxis" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis side="LEFT" />
+                            <NumberAxis fx:id="yAxis" side="LEFT" />
                           </yAxis>
                         </BarChart>
                      </children>

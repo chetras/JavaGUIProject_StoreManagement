@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.userOrderController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.userOrderController">
     <children>
         <StackPane layoutX="6.0" prefHeight="700.0" prefWidth="894.0">
             <children>
@@ -16,11 +15,11 @@
                     <center>
                         <AnchorPane prefHeight="554.0" prefWidth="894.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView layoutX="9.0" layoutY="18.0" prefHeight="538.0" prefWidth="964.0">
+                        <TableView fx:id="SpecificUser" layoutX="9.0" layoutY="18.0" prefHeight="538.0" prefWidth="964.0">
                           <columns>
                             <TableColumn fx:id="ProdID" prefWidth="75.0" text="Product ID" />
                             <TableColumn fx:id="ProdName" prefWidth="75.0" text="Product Name" />
-                              <TableColumn fx:id="PricePaia" prefWidth="75.0" text="Price Paid" />
+                              <TableColumn fx:id="PricePaid" prefWidth="75.0" text="Price Paid" />
                               <TableColumn fx:id="Quantity" prefWidth="75.0" text="Quantity" />
                               <TableColumn fx:id="TotalPrice" prefWidth="75.0" text="Totle Price" />
                               <TableColumn fx:id="Customer" prefWidth="75.0" text="Customer" />

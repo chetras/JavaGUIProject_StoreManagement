@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class userOrderController  {
+public class userOrderController  implements Initializable{
 
     @FXML
     private TableView<Order> SpecificUser;
@@ -49,34 +49,21 @@ public class userOrderController  {
         me.changeScene("login-view.fxml");
     }
 
-
-
-
-
-
-
-    /*private User currentUser;
-
-    public void setCurrentUser(User user) {
-        this.currentUser = user;
-        loadOrderHistory();
-    }
-
     private void loadOrderHistory() {
+        User currentUser = logincontroller.getCurrentUser();
         if (currentUser != null) {
             String username = currentUser.getUsername();
             ObservableList<Order> orderHistory = UserDataHandler.loadOrderHistory(username);
-
+            System.out.println("Loaded Order History: " + orderHistory); // Print for debugging
             SpecificUser.setItems(orderHistory);
         }
     }
 
 
-
-
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle){
         initeCols();
+        loadOrderHistory(); // Add this line
 
     }
     private void initeCols() {
@@ -85,5 +72,6 @@ public class userOrderController  {
         PricePaid.setCellValueFactory(new PropertyValueFactory<>("productPrice"));
         Quantity.setCellValueFactory(new PropertyValueFactory<>("productStock"));
         TotalPrice.setCellValueFactory(new PropertyValueFactory<>("productTotalprice"));
-        Customer.setCellValueFactory(new PropertyValueFactory<>("username"));    }*/
+        Customer.setCellValueFactory(new PropertyValueFactory<>("username"));
+    }
 }

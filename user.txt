@@ -1,2 +1,3 @@
-aa,aa,aa,aa,50
-bb,bb,bb,bb,35
+aa,aa,aa,aa,8
+bb,bb,bb,bb,20
+cc,cc,cc,cc,0

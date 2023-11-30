@@ -41,17 +41,29 @@ public class registercontroller {
             return;
         }
 
+        String username = usernameField.getText();
+
+        // Check if the user with the given username already exists
+        User existinguser = UserDataHandler.findUserbyUserName(username);
+
+        if(existinguser != null){
+            System.out.println("Username is already taken, please enter a different username.");
+            return;
+        }
+
         User newUser = new User();
         newUser.setFullname(fullnameField.getText());  // Set the fullname property
         newUser.setUsername(usernameField.getText());
         newUser.setEmail(emailField.getText());
         newUser.setPassword(password);
+
+        UserDataHandler.saveUser(newUser);
         fullnameField.setText("");
         usernameField.setText("");
         emailField.setText("");
         passwordField.setText("");
         confirmPasswordField.setText("");
 
-        UserDataHandler.saveUser(newUser);
+
     }
 }

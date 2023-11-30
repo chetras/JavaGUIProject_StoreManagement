@@ -150,7 +150,7 @@ public class UserBuyController implements Initializable {
     }
 
     private void saveUserOrder(Order order)throws IOException{
-        try (PrintWriter writer = new PrintWriter(new FileWriter(USER_ORDERS_FILE_PATH))){
+        try (PrintWriter writer = new PrintWriter(new FileWriter(USER_ORDERS_FILE_PATH ,true))){
             writer.println(order.getProductID() + "," + order.getProductName() +","+  order.getProductPrice()+","+order.getProductStock()+","+order.getProductTotalprice()+","+currentUser.getUsername());
             System.out.println("Order placed successfully");
         }catch (NullPointerException e){
