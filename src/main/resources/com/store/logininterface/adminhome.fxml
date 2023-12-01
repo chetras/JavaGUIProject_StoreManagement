@@ -72,7 +72,7 @@
                <children>
                   <AnchorPane layoutX="7.0" layoutY="-1.0" prefHeight="246.0" prefWidth="825.0" style="-fx-background-color: grey;">
                      <children>
-                        <BarChart fx:id="orderchart" prefHeight="257.0" prefWidth="825.0" title="Number of item order">
+                        <BarChart fx:id="OrderChart" prefHeight="257.0" prefWidth="825.0" title="Product Stock">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" fx:id="xAxis" />
                           </xAxis>
@@ -82,16 +82,16 @@
                         </BarChart>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="7.0" layoutY="277.0" prefHeight="226.0" prefWidth="825.0" style="-fx-background-color: grey;">
+                  <AnchorPane layoutX="7.0" layoutY="273.0" prefHeight="230.0" prefWidth="826.0" style="-fx-background-color: grey;">
                      <children>
-                        <BarChart prefHeight="228.0" prefWidth="825.0" title="Income Chart">
+                        <LineChart fx:id="IncomeChart" layoutX="-6.0" layoutY="1.0" prefHeight="230.0" prefWidth="834.0" title="Income Chart">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
                           <yAxis>
                             <NumberAxis side="LEFT" />
                           </yAxis>
-                        </BarChart>
+                        </LineChart>
                      </children>
                   </AnchorPane>
                   <Separator layoutX="2.0" layoutY="250.0" prefHeight="35.0" prefWidth="834.0" />

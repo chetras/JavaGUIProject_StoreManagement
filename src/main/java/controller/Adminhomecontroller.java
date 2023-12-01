@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -33,13 +30,11 @@ public class Adminhomecontroller implements Initializable {
     private Label numberOfCustomersLabel;
 
     @FXML
-    private BarChart<String, Number> orderchart;
+    private BarChart<String, Double> OrderChart;
 
     @FXML
-    private CategoryAxis xAxis;
+    private LineChart<String, Double> IncomeChart;
 
-    @FXML
-    private NumberAxis yAxis;
 
 
     @FXML
@@ -74,7 +69,8 @@ public class Adminhomecontroller implements Initializable {
             int numberOfCustomers = countCustomers();
             numberOfCustomersLabel.setText(String.valueOf(numberOfCustomers));
             updateTotalIncome();
-            //loadChartData();
+            updateIncomeChart();
+            updateOrderChart();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -105,6 +101,52 @@ public class Adminhomecontroller implements Initializable {
             totalincome.setText("$"+Totalincome);
         }catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    private void updateIncomeChart() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("Allpurchased-details.txt"));
+            String line;
+            XYChart.Series<String, Double> series = new XYChart.Series<>();
+            series.setName("Total Income");
+
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("Total Price:")) {
+                    String totalPrice = line.split(":")[1].trim();
+                    double currentPrice = Double.parseDouble(totalPrice);
+
+                    String category = series.getData().size() + "";
+                    series.getData().add(new XYChart.Data<>(category, currentPrice));
+                }
+            }
+            IncomeChart.getData().add(series);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    private void updateOrderChart() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("Product.txt"));
+            String line;
+            XYChart.Series<String, Double> series = new XYChart.Series<>();
+            series.setName("Product Stocks");
+
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 5) {
+                    String ProdName = parts[1];
+                    String stock = parts[2];
+                    // Parse the stock value as a string and convert it to double
+                    series.getData().add(new XYChart.Data<>(ProdName, Double.parseDouble(stock)));
+                }
+            }
+
+            OrderChart.getData().add(series);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

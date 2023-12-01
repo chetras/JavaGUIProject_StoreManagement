@@ -23,3 +23,13 @@ Product Name: Steak
 Quantity: 10
 Total Price: 500
 Customer Name: vv
+Product ID: 003 
+Product Name: Steak
+Quantity: 10
+Total Price: 500
+Customer Name: aa
+Product ID: 002 
+Product Name: Cake
+Quantity: 5
+Total Price: 25
+Customer Name: aa
