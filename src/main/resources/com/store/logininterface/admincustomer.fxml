@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminCustomersController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminCustomersController">
    <children>
+      <ImageView fitHeight="48.0" fitWidth="200.0" layoutY="652.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sm-logo-admin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="772.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginBg.jpg" />
+         </image>
+      </ImageView>
        <StackPane fx:id="customersContent" maxWidth="1000.0" prefHeight="700.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
               <BorderPane prefHeight="535.0" prefWidth="618.0">
@@ -29,9 +41,9 @@
                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                 <children>
                                     <TextField fx:id="txtusername" layoutX="1.0" layoutY="2.0" prefHeight="25.0" prefWidth="291.0" promptText="search by username " />
-                                    <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchonclick" prefHeight="26.0" style="-fx-background-color: lightblue;" text="Search" textFill="#f5f2f2" />
-                              <Button fx:id="deletebutton" layoutX="461.0" layoutY="2.0" mnemonicParsing="false" onAction="#deletebuttononaction" text="Delete" />
-                              <Button layoutX="367.0" layoutY="1.0" mnemonicParsing="false" onAction="#showuser" text="Show  User" />
+                                    <Button layoutX="300.0" layoutY="2.0" mnemonicParsing="false" onAction="#searchonclick" prefHeight="26.0" style="-fx-background-color: blue;" text="Search" textFill="#fffefe" />
+                              <Button fx:id="deletebutton" layoutX="477.0" layoutY="1.0" mnemonicParsing="false" onAction="#deletebuttononaction" style="-fx-background-color: red;" text="Delete" textFill="#fcf8f8" />
+                              <Button layoutX="375.0" layoutY="1.0" mnemonicParsing="false" onAction="#showuser" style="-fx-background-color: Green;" text="Show  User" textFill="WHITE" />
                                 </children>
                              </AnchorPane>
                         <Button mnemonicParsing="false" onAction="#gobackbutton" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: blue;" text="Back" textFill="#f2eded" GridPane.columnIndex="1" />

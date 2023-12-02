@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserBuyController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserBuyController">
     <children>
+      <ImageView fitHeight="700.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginBg.jpg" />
+         </image></ImageView>
         <Label layoutX="446.0" layoutY="8.0" prefHeight="35.0" prefWidth="286.0" text="Store Management System" textFill="#222121">
             <font>
                 <Font name="System Italic" size="24.0" />
@@ -18,22 +22,27 @@
                     <children>
                         <AnchorPane prefHeight="700.0" prefWidth="98.0">
                             <children>
-                                <Button layoutX="21.0" layoutY="143.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Order Product">
+                                <Button layoutX="21.0" layoutY="178.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="116.0" style="-fx-background-color: lightblue;" text="Order Product">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="21.0" layoutY="315.0" mnemonicParsing="false" onAction="#onhistorybtn" prefHeight="81.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="History">
+                                <Button layoutX="21.0" layoutY="350.0" mnemonicParsing="false" onAction="#onhistorybtn" prefHeight="81.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="History">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="21.0" layoutY="229.0" mnemonicParsing="false" onAction="#onProductbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Product">
+                                <Button layoutX="21.0" layoutY="264.0" mnemonicParsing="false" onAction="#onProductbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Product">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </Button>
                                 <Button layoutX="39.0" layoutY="537.0" mnemonicParsing="false" onAction="#handlelogoutbutton" prefHeight="47.0" prefWidth="80.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7" />
+                        <Label layoutX="10.0" layoutY="55.0" prefHeight="68.0" prefWidth="139.0" text="Order Product" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
                             </children>
                         </AnchorPane>
                     </children>
@@ -65,5 +74,10 @@
       <Button layoutX="585.0" layoutY="594.0" mnemonicParsing="false" onAction="#Paybtn" prefHeight="47.0" prefWidth="87.0" text="Pay" />
       <Button fx:id="buttonre" layoutX="711.0" layoutY="594.0" mnemonicParsing="false" onAction="#displayreceipt" prefHeight="47.0" prefWidth="87.0" text="Recept" />
       <Label fx:id="displaylable" layoutX="349.0" layoutY="655.0" prefHeight="31.0" prefWidth="349.0" />
+      <ImageView fitHeight="59.0" fitWidth="168.0" layoutX="160.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sm-logo-admin.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

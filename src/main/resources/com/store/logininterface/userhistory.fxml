@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.userOrderController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.userOrderController">
     <children>
+      <ImageView fitHeight="783.0" fitWidth="1135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginBg.jpg" />
+         </image>
+      </ImageView>
         <StackPane layoutX="6.0" prefHeight="700.0" prefWidth="894.0">
             <children>
                 <BorderPane prefHeight="370.0" prefWidth="594.0">
                     <bottom>
-                        <AnchorPane prefHeight="56.0" prefWidth="894.0" BorderPane.alignment="CENTER" />
+                        <AnchorPane prefHeight="56.0" prefWidth="894.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="59.0" fitWidth="164.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@sm-logo-admin.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
                     </bottom>
                     <center>
                         <AnchorPane prefHeight="554.0" prefWidth="894.0" BorderPane.alignment="CENTER">

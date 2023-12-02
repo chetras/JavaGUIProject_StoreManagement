@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardcontroller">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardcontroller">
    <children>
-      <Label layoutX="446.0" layoutY="8.0" prefHeight="35.0" prefWidth="286.0" text="Store Management System" textFill="#222121">
+      <Label layoutX="446.0" layoutY="8.0" prefHeight="35.0" prefWidth="286.0" text="Store Management System" textFill="#365ccd">
          <font>
             <Font name="System Italic" size="24.0" />
          </font>
@@ -18,27 +17,32 @@
                <children>
                   <AnchorPane prefHeight="700.0" prefWidth="98.0">
                      <children>
-                        <Button layoutX="21.0" layoutY="63.0" mnemonicParsing="false" onAction="#onHomebtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Home">
+                        <Button layoutX="21.0" layoutY="151.0" mnemonicParsing="false" onAction="#onHomebtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Home">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="149.0" mnemonicParsing="false" onAction="#onOrderbtn" prefHeight="81.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Order">
+                        <Button layoutX="21.0" layoutY="237.0" mnemonicParsing="false" onAction="#onOrderbtn" prefHeight="81.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Order">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="230.0" mnemonicParsing="false" onAction="#onproductbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Product">
+                        <Button layoutX="21.0" layoutY="318.0" mnemonicParsing="false" onAction="#onproductbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-color: lightblue;" text="Product">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="21.0" layoutY="316.0" mnemonicParsing="false" onAction="#onCustomerbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Customer">
+                        <Button layoutX="21.0" layoutY="404.0" mnemonicParsing="false" onAction="#onCustomerbtn" prefHeight="86.0" prefWidth="116.0" style="-fx-background-insets: 0,0,-1,0;" text="Customer">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
                         <Button layoutX="39.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleadminlogoutbutton" prefHeight="47.0" prefWidth="80.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7" />
+                        <Label alignment="CENTER" layoutX="9.0" layoutY="49.0" prefHeight="54.0" prefWidth="126.0" text="Product" textFill="WHITE">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>
