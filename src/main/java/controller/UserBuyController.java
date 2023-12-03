@@ -314,4 +314,76 @@ public class UserBuyController implements Initializable {
             a.printStackTrace();
         }
     }
+
+    @FXML
+    public void removeproduct(Event e) throws IOException {
+        Product selectedProduct = product_id.getSelectionModel().getSelectedItem();
+        String stockText = stockfield.getText();
+
+        if (selectedProduct != null && !stockText.isEmpty()) {
+            int stock = Integer.parseInt(stockText);
+            if (stock <= 0) {
+                displaylable.setText("Invalid Quantity");
+                return;
+            }
+
+            Order orderToRemove = null;
+            for (Order order : userOrders) {
+                if (order.getProductID().equals(selectedProduct.getProductID())) {
+                    int orderStock = Integer.parseInt(order.getProductStock());
+                    if (stock > orderStock) {
+                        displaylable.setText("Quantity to remove exceeds the available quantity in user's order");
+                        return;
+                    }
+
+                    int price = Integer.parseInt(order.getProductPrice().replaceAll("\\$", ""));
+                    int orderPrice = Integer.parseInt(order.getProductTotalprice());
+
+                    // Calculate the new total price and update the label
+                    totalprice -= price * stock;
+                    totalprices.setText("$" + totalprice);
+
+                    // Update the order's quantity and total price
+                    order.setProductStock(String.valueOf(orderStock - stock));
+                    order.setProductTotalprice(String.valueOf(orderPrice - price * stock));
+
+                    // Update the user's order file
+                    updateUserOrderFile();
+
+                    // Update the product stock in the Product.txt file
+                    updateProductStock(selectedProduct, -stock);
+
+                    // Remove the order from the userOrders list if the stock becomes zero
+                    if (order.getProductStock().equals("0")) {
+                        orderToRemove = order;
+                    }
+
+                    break;
+                }
+            }
+
+            // Remove the order from the userOrders list
+            if (orderToRemove != null) {
+                userOrders.remove(orderToRemove);
+            }
+
+            loadData();
+            product_id.getSelectionModel().clearSelection();
+            stockfield.clear();
+        }
+    }
+
+    private void updateUserOrderFile() throws IOException {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(USER_ORDERS_FILE_PATH))) {
+            for (Order order : userOrders) {
+                writer.println(order.getProductID() + "," + order.getProductName() + "," +
+                        order.getProductPrice() + "," + order.getProductStock() + "," +
+                        order.getProductTotalprice() + "," + currentUser.getUsername());
+            }
+
+            displaylable.setText("Product removed successfully");
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
 }
