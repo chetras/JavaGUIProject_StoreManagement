@@ -249,7 +249,7 @@ public class UserBuyController implements Initializable {
     private void savePurchaseDetails(ObservableList<Order> orders, int total, int enteredAmount, int change){
         String purchaseDetailsFilename = "purchase-details-" + currentUser.getUsername();
         try (PrintWriter purchaseWriter = new PrintWriter(new FileWriter(purchaseDetailsFilename,true));
-             PrintWriter AllproductWriter = new PrintWriter(new FileWriter("Allpurchased-details.txt",true))) {
+             PrintWriter AllproductWriter = new PrintWriter(new FileWriter("Allpurchased-details.txt"))) {
 
             for (Order order : orders) {
                 // Save purchase details

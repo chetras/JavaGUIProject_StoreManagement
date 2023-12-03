@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -17,6 +18,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class userOrderController  implements Initializable{
+
+    @FXML
+    private TextField searchorder;
 
     @FXML
     private TableView<Order> SpecificUser;
@@ -73,5 +77,9 @@ public class userOrderController  implements Initializable{
         Quantity.setCellValueFactory(new PropertyValueFactory<>("productStock"));
         TotalPrice.setCellValueFactory(new PropertyValueFactory<>("productTotalprice"));
         Customer.setCellValueFactory(new PropertyValueFactory<>("username"));
+    }
+
+    public void onsearch(Event e){
+
     }
 }

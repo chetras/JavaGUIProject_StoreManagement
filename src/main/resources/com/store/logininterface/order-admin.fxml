@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminOrderController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminOrderController">
     <children>
       <ImageView fitHeight="700.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -52,13 +51,13 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="261.0" layoutY="59.0" mnemonicParsing="false" style="-fx-background-color: lightblue;" text="Search" />
+                                <Button layoutX="261.0" layoutY="59.0" mnemonicParsing="false" onAction="#onsearch" style="-fx-background-color: lightblue;" text="Search" />
                                 <Label layoutX="304.0" text="Customer Order History">
                                     <font>
                                         <Font size="30.0" />
                                     </font>
                                 </Label>
-                                <TextField layoutX="21.0" layoutY="59.0" prefHeight="31.0" prefWidth="235.0" promptText="search by name or id" />
+                                <TextField fx:id="searchorder" layoutX="21.0" layoutY="59.0" prefHeight="31.0" prefWidth="235.0" promptText="search by name or id" />
                                 <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#onlogoutbtn" style="-fx-background-color: red;" text="Log Out" textFill="#ebdfdf" />
                             </children>
                         </AnchorPane>

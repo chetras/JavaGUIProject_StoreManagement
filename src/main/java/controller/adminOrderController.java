@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.File;
@@ -40,6 +41,9 @@ public class adminOrderController implements Initializable {
     @FXML
     private TableColumn<Order, String> Customer;
 
+    @FXML
+    private TextField searchorder;
+
     public void onbackbtn(Event e) throws IOException {
         main me = new main();
         me.changeScene("admin-dashboard.fxml");
@@ -48,6 +52,31 @@ public class adminOrderController implements Initializable {
     public void onlogoutbtn(Event e) throws IOException {
         main me = new main();
         me.changeScene("login-view.fxml");
+    }
+
+    public void onsearch(Event e) throws IOException{
+        String searchText = searchorder.getText().trim();
+        ObservableList<Order> filteredOrderList = FXCollections.observableArrayList();
+
+        try (Scanner scanner = new Scanner(new File("user-order.txt"))){
+            while (scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                String[] parts = line.split(",");
+                if (parts.length == 6 && parts[0].equals(searchText)){
+                    Order order = new Order();
+                    order.setProductID(parts[0]);
+                    order.setProductName(parts[1]);
+                    order.setProductPrice(parts[2]);
+                    order.setProductStock(parts[3]);
+                    order.setProductTotalprice(parts[4]);
+                    order.setUsername(parts[5]);
+
+                    filteredOrderList.add(order);
+                }
+            }
+        }
+
+        ordercustomer.setItems(filteredOrderList);
     }
 
     @Override
