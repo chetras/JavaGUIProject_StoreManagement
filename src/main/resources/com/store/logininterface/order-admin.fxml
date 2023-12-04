@@ -51,7 +51,7 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="261.0" layoutY="59.0" mnemonicParsing="false" onAction="#onsearch" style="-fx-background-color: lightblue;" text="Search" />
+                                <Button layoutX="261.0" layoutY="59.0" mnemonicParsing="false" onAction="#onsearch" prefHeight="31.0" prefWidth="58.0" style="-fx-background-color: lightblue;" text="Search" />
                                 <Label layoutX="304.0" text="Customer Order History">
                                     <font>
                                         <Font size="30.0" />

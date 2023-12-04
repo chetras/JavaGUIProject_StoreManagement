@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardcontroller">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardcontroller">
    <children>
+      <ImageView fitHeight="54.0" fitWidth="177.0" layoutX="159.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sm-logo.png" />
+         </image>
+      </ImageView>
       <Label layoutX="446.0" layoutY="8.0" prefHeight="35.0" prefWidth="286.0" text="Store Management System" textFill="#365ccd">
          <font>
             <Font name="System Italic" size="24.0" />
@@ -49,7 +56,7 @@
             </StackPane>
          </children>
       </HBox>
-      <TableView fx:id="productData" layoutX="160.0" layoutY="57.0" prefHeight="432.0" prefWidth="829.0">
+      <TableView fx:id="productData" layoutX="160.0" layoutY="52.0" prefHeight="437.0" prefWidth="837.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
@@ -62,15 +69,18 @@
          </columns>
       </TableView>
       <TextField fx:id="txtProdId" layoutX="220.0" layoutY="503.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductID" />
-      <Button fx:id="btnsearchProd" layoutX="662.0" layoutY="503.0" mnemonicParsing="false" onAction="#searchOnClick" text="Search Product" />
-      <Button fx:id="btndeleteProd" layoutX="663.0" layoutY="549.0" mnemonicParsing="false" onAction="#removeonClick" text="Delete Product" />
+      <Button fx:id="btnsearchProd" layoutX="662.0" layoutY="503.0" mnemonicParsing="false" onAction="#searchOnClick" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: blue;" text="Search Product" textFill="WHITE" />
+      <Button fx:id="btndeleteProd" layoutX="663.0" layoutY="549.0" mnemonicParsing="false" onAction="#removeonClick" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: red;" text="Delete Product" textFill="WHITE" />
       <TextField fx:id="txtProdName" layoutX="220.0" layoutY="541.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductName" />
       <TextField fx:id="txtProdPrice" layoutX="220.0" layoutY="580.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductPrice" />
       <TextField fx:id="txtProdCat" layoutX="220.0" layoutY="619.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductCatagory" />
       <TextField fx:id="txtProdStock" layoutX="220.0" layoutY="655.0" prefHeight="31.0" prefWidth="226.0" promptText="ProductStock" />
-      <Button fx:id="btnaddProd" layoutX="512.0" layoutY="503.0" mnemonicParsing="false" onAction="#addOnClick" prefHeight="31.0" prefWidth="125.0" text="Add Product" />
-      <Button fx:id="btnupdateProd" layoutX="512.0" layoutY="549.0" mnemonicParsing="false" onAction="#updateOnClick" text="Update Product" />
-      <Button fx:id="btnshowProd" layoutX="583.0" layoutY="596.0" mnemonicParsing="false" onAction="#displayTable" text="Show All Product" />
+      <Button fx:id="btnaddProd" layoutX="512.0" layoutY="503.0" mnemonicParsing="false" onAction="#addOnClick" prefHeight="31.0" prefWidth="125.0" style="-fx-background-color: blue;" text="Add Product" textFill="WHITE" />
+      <Button fx:id="btnupdateProd" layoutX="512.0" layoutY="549.0" mnemonicParsing="false" onAction="#updateOnClick" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: blue;" text="Update Product" textFill="WHITE">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font></Button>
+      <Button fx:id="btnshowProd" layoutX="599.0" layoutY="598.0" mnemonicParsing="false" onAction="#displayTable" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: blue;" text="Show Product" textFill="WHITE" />
       <Label fx:id="text" layoutX="476.0" layoutY="660.0" prefHeight="21.0" prefWidth="306.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

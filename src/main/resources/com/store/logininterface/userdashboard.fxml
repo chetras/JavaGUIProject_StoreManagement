@@ -40,6 +40,11 @@
                                 </Button>
                                 <Button layoutX="39.0" layoutY="537.0" mnemonicParsing="false" onAction="#handleuserlogoutbutton" prefHeight="47.0" prefWidth="80.0" style="-fx-background-color: red;" text="Log out" textFill="#fcf7f7" />
                         <Label fx:id="currentUser" layoutX="24.0" layoutY="48.0" prefHeight="31.0" prefWidth="116.0" />
+                        <Label layoutX="24.0" layoutY="64.0" prefHeight="40.0" prefWidth="105.0" text="Product" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
                             </children>
                         </AnchorPane>
                     </children>
